@@ -69,21 +69,13 @@
 					"width": 238,
 					"height": 16,
 					"fontSize": 12
-				},
-				"Input": {
-					"type": "input",
-					"left": 138,
-					"top": 186,
-					"width": 253,
-					"height": 17,
-					"placeholder": "tt"
 				}
 			}
 		}
 	],
 	"width": 600,
 	"height": 480,
-	"geometryStamp": 65,
+	"geometryStamp": 66,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",

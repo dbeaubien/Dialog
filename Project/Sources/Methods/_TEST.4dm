@@ -1,4 +1,27 @@
 //%attributes = {"preemptive":"capable"}
+var $dialog : cs:C1710.Dialog
+$dialog:=cs:C1710.Dialog.new()\
+.title("Message")\
+.width(400)\
+.ok_button("OK")\
+.cancel_button("Cancel")
+
+cs:C1710.Text.new($dialog; "Welcome to the dialog!")\
+.bold().italic().size(16)
+
+cs:C1710.Text.new($dialog; "Options:").indent(10)
+cs:C1710.Checkbox.new($dialog; "Option #1").name("cb_1").indent(20).is_checked()
+cs:C1710.Checkbox.new($dialog; "Option #2").name("cb_2").indent(20)
+
+// Display the dialog
+var $result : Object
+$result:=$dialog.display()
+If ($result.button_pressed="OK")
+	var $cb_1; $cb_2 : Boolean
+	$cb_1:=$result.cb_1
+	$cb_2:=$result.cb_2
+End if 
+
 
 var $dialog : cs:C1710.Dialog
 $dialog:=cs:C1710.Dialog.new()\

@@ -1,5 +1,17 @@
 //%attributes = {"preemptive":"capable"}
 
+// small alert
+var $dialog : cs:C1710.Dialog
+$dialog:=cs:C1710.Dialog.new().default_font_size(13).title("")\
+.ok_button("This is the OKAY button")\
+.cancel_button("Cancel")\
+.other_button("poop")
+cs:C1710.Text.new($dialog; "HEADER").size(24).bold()
+cs:C1710.Text.new($dialog; "This is the content of the small alert.")
+cs:C1710.Text.new($dialog; "This is the content of the small alert."*20).italic().indent(40)
+$dialog.display()
+
+
 //ALERT("This is the content of the small alert. This is the content of the small alert.")
 
 // small alert
@@ -20,7 +32,6 @@ cs:C1710.Blank_Line.new($dialog)
 cs:C1710.Text.new($dialog; "This is the content of the small alert.").indent(10)
 $dialog.display()
 
-ABORT:C156
 
 // large alert
 var $dialog : cs:C1710.Dialog

@@ -57,10 +57,8 @@ Function display()->$result : Object
 		.file("form.4DForm")\
 		.getText()
 	
-	var $page : Object
 	This:C1470._form:=JSON Parse:C1218($form_raw_json)
 	This:C1470._form.width:=This:C1470._width
-	$page:=This:C1470._form.pages[1]
 	
 	FORM LOAD:C1103("Template")  // used by This._get_text_best_size()
 	This:C1470._append_widgets_to_form(This:C1470._form)
