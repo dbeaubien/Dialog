@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 C_LONGINT:C283(OnErr_GetLastError; $0)
 C_TEXT:C284(OnErr_GetLastErrorMessages; $0)
 C_TEXT:C284(Date2String; $0)

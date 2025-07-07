@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 // Method: Date2String ( date {; formatStr} ) : formated date as string
 // Method: Date2String ( date {; text} ) : text
 //

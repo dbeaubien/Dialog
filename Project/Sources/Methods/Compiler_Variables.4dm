@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true}
+//%attributes = {"invisible":true,"preemptive":"capable"}
 
 C_REAL:C285(Button)
 C_LONGINT:C283(gError)
