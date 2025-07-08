@@ -9,7 +9,10 @@
 	"windowMinHeight": 0,
 	"windowMaxWidth": 32767,
 	"windowMaxHeight": 32767,
-	"events": [],
+	"events": [
+		"onLoad",
+		"onTimer"
+	],
 	"windowTitle": "window title",
 	"destination": "detailScreen",
 	"pages": [
@@ -31,7 +34,12 @@
 					"sizingX": "move",
 					"sizingY": "move",
 					"action": "accept",
-					"defaultButton": true
+					"defaultButton": true,
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Return]"
 				},
 				"btn_cancel": {
 					"type": "button",
@@ -45,7 +53,12 @@
 					],
 					"sizingX": "move",
 					"sizingY": "move",
-					"action": "cancel"
+					"action": "cancel",
+					"shortcutAccel": false,
+					"shortcutControl": false,
+					"shortcutShift": false,
+					"shortcutAlt": false,
+					"shortcutKey": "[Esc]"
 				},
 				"btn_third": {
 					"type": "button",
@@ -75,12 +88,13 @@
 	],
 	"width": 600,
 	"height": 480,
-	"geometryStamp": 66,
+	"geometryStamp": 71,
 	"editor": {
 		"activeView": "View 1",
 		"defaultView": "View 1",
 		"views": {
 			"View 1": {}
 		}
-	}
+	},
+	"method": "Template_Form_Method"
 }

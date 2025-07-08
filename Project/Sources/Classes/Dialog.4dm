@@ -10,8 +10,10 @@ property _button_Third_label : Text
 property _button_Cancel_label : Text
 property _form : Object
 property _form_data : Object
+property _auto_cancel_in_seconds : Integer
 
 Class constructor
+	This:C1470._form_data:={}
 	This:C1470.default_font_size(13)
 	This:C1470.width(600)
 	This:C1470.ok_button("OK")
@@ -19,8 +21,8 @@ Class constructor
 	This:C1470.other_button("")
 	This:C1470.title("")
 	This:C1470._widgets:=[]
-	This:C1470._top_next_widget:=20
-	This:C1470._form_data:={}
+	This:C1470._top_next_widget:=10
+	This:C1470.auto_cancel_in_seconds(0)
 	
 	
 	//Mark:-************ PUBLIC FUNCTIONS
@@ -48,6 +50,10 @@ Function other_button($label : Text) : cs:C1710.Dialog
 	This:C1470._button_Third_label:=$label
 	return This:C1470
 	
+Function auto_cancel_in_seconds($num_seconds_to_auto_cancel : Integer) : cs:C1710.Dialog
+	This:C1470._form_data.auto_cancel_in_seconds:=$num_seconds_to_auto_cancel
+	return This:C1470
+	
 Function display()->$result : Object
 	var $form_raw_json : Text
 	$form_raw_json:=Folder:C1567("/PROJECT")\
@@ -61,15 +67,15 @@ Function display()->$result : Object
 	This:C1470._form.width:=This:C1470._width
 	
 	FORM LOAD:C1103("Template")  // used by This._get_text_best_size()
-	This:C1470._append_widgets_to_form(This:C1470._form)
-	This:C1470._adjust_buttons(This:C1470._form)
+	This:C1470._append_widgets_to_form()
+	This:C1470._move_buttons_to_last_object()
+	This:C1470._adjust_buttons()
+	This:C1470._handle_auto_close_message()
 	OB REMOVE:C1226(This:C1470._form.pages[1].objects; "text_best_sizer")  // remove our temp object used for text sizing
 	FORM UNLOAD:C1299
 	
-	This:C1470._form_data.button_pressed:=""
-	
 	var $rect : Object
-	This:C1470._form.height:=This:C1470._top_next_widget+20
+	This:C1470._form.height:=This:C1470._top_next_widget+15
 	$rect:=This:C1470._get_dialog_rect()
 	
 	var $window_ref : Integer
@@ -77,6 +83,7 @@ Function display()->$result : Object
 		; $rect.right; $rect.bottom\
 		; Movable dialog box:K34:7)
 	SET WINDOW TITLE:C213(This:C1470._title; $window_ref)
+	This:C1470._form_data.button_pressed:=""
 	DIALOG:C40(This:C1470._form; This:C1470._form_data)
 	CLOSE WINDOW:C154($window_ref)
 	$result:=This:C1470._form_data
@@ -88,13 +95,28 @@ Function _add_widget($widget : cs:C1710._widget)
 	This:C1470._widgets.push($widget)
 	
 	
+Function _move_buttons_to_last_object()
+	// Move the buttons to be the last 3 objects on the form to maintain the tab order
+	var $button : Object
+	$button:=This:C1470._form.pages[1].objects.btn_ok
+	OB REMOVE:C1226(This:C1470._form.pages[1].objects; "btn_ok")
+	This:C1470._form.pages[1].objects.btn_ok:=$button
+	
+	$button:=This:C1470._form.pages[1].objects.btn_cancel
+	OB REMOVE:C1226(This:C1470._form.pages[1].objects; "btn_cancel")
+	This:C1470._form.pages[1].objects.btn_cancel:=$button
+	
+	$button:=This:C1470._form.pages[1].objects.btn_third
+	OB REMOVE:C1226(This:C1470._form.pages[1].objects; "btn_third")
+	This:C1470._form.pages[1].objects.btn_third:=$button
+	
+	
 Function _adjust_buttons()
 	var $best_size : Object
 	var $button_right_edge_position : Integer
 	$button_right_edge_position:=This:C1470._form.width-20
 	This:C1470._top_next_widget+=10
 	
-	var $l; $t; $r; $b; $target_width : Integer
 	$best_size:=This:C1470._get_text_best_size(This:C1470._button_OK_label; {min_width: 60})
 	This:C1470._form.pages[1].objects.btn_ok.method:="Button_OK_pressed"
 	This:C1470._form.pages[1].objects.btn_ok.text:=This:C1470._button_OK_label
@@ -130,6 +152,28 @@ Function _adjust_buttons()
 		This:C1470._form.pages[1].objects.btn_third.height:=This:C1470._form.pages[1].objects.btn_ok.height
 		This:C1470._form.pages[1].objects.btn_third.left:=20
 	End if 
+	
+	
+Function _handle_auto_close_message()
+	If (This:C1470._form_data.auto_cancel_in_seconds=0)
+		return 
+	End if 
+	var $auto_cancel_message : Object
+	$auto_cancel_message:={}
+	$auto_cancel_message.type:="input"
+	$auto_cancel_message.top:=This:C1470._top_next_widget
+	$auto_cancel_message.left:=20
+	$auto_cancel_message.height:=20
+	$auto_cancel_message.width:=This:C1470._width-40
+	$auto_cancel_message.dataSource:="Form.auto_cancel_message"
+	$auto_cancel_message.textAlign:="center"
+	$auto_cancel_message.fontStyle:="italic"
+	$auto_cancel_message.fill:="transparent"
+	$auto_cancel_message.enterable:=False:C215
+	$auto_cancel_message.contextMenu:="none"
+	$auto_cancel_message.borderStyle:="none"
+	This:C1470._form.pages[1].objects.auto_cancel_message:=$auto_cancel_message
+	This:C1470._top_next_widget+=10
 	
 	
 Function _get_dialog_rect($height : Integer)->$rect : Object

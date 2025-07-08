@@ -47,6 +47,12 @@ Sets the label for the optional third button. If set to an empty string, the thi
   - `$label : Text` - The text to display on the third button.
 - **Returns**: `cs.Dialog` - The current dialog instance.
 
+### `auto_cancel_in_seconds($num_seconds_to_auto_cancel : Integer) : cs.Dialog`
+Sets the number of seconds before the dialog is auto cancelled if a non-zero number is provided.
+- **Parameters**:
+  - `$num_seconds_to_auto_cancel : Integer` - Number of seconds to wait before auto cancelling the dialog.
+- **Returns**: `cs.Dialog` - The current dialog instance.
+
 ### `display() -> $result : Object`
 Displays the dialog window, processes user input, and returns the form data.
 - **Behavior**:

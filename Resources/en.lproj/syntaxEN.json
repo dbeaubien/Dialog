@@ -85,6 +85,22 @@
 		}
 	},
 	"Dialog": {
+		"auto_cancel_in_seconds()": {
+			"Syntax": "**.auto_cancel_in_seconds**( *num_seconds_to_auto_cancel* : Integer ) : cs.Dialog.Dialog",
+			"Params": [
+				[
+					"num_seconds_to_auto_cancel",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.Dialog",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"title()": {
 			"Syntax": "**.title**( *title* : Text ) : cs.Dialog.Dialog",
 			"Params": [
