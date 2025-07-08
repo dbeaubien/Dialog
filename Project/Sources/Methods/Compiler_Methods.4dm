@@ -17,3 +17,8 @@ C_OBJECT:C1216(BuildNo_GetBuildNo_Comp; $0)
 //CallChain_FormatPretty
 C_TEXT:C284(CallChain_FormatPretty; $0)
 C_COLLECTION:C1488(CallChain_FormatPretty; $1)
+
+//TS_FromDateTime
+C_LONGINT:C283(TS_FromDateTime; $0)
+C_DATE:C307(TS_FromDateTime; $1)
+C_TIME:C306(TS_FromDateTime; $2)
