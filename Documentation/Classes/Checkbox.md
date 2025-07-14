@@ -42,6 +42,10 @@ Sets the left indentation for the checkbox.
   - `$indent : Integer` - The indentation in pixels.
 - **Returns**: `cs.Checkbox` - The current checkbox widget instance.
 
+### `no_newline() : cs.Checkbox`
+Sets the checkbox to not force a new line after the checkbox. Useful if you want the next widget to be on the same 'line'.
+- **Returns**: `cs.Checkbox` - The current checkbox widget instance.
+
 ### `is_checked() : cs.Checkbox`
 Sets the checkbox to be initially checked.
 - **Returns**: `cs.Checkbox` - The current checkbox widget instance.

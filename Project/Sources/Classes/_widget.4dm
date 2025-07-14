@@ -1,15 +1,21 @@
 // cs._widget
 
-property _dialog : cs:C1710.Dialog
 property _json : Text
+property _dialog : cs:C1710.Dialog
+property _append_newline : Boolean
+
 
 Class constructor($dialog : cs:C1710.Dialog)
 	$dialog._add_widget(This:C1470)
+	This:C1470._append_newline:=True:C214
 	This:C1470._dialog:=$dialog
 	This:C1470._json:=""
 	
 	
 	//Mark:-************ PUBLIC FUNCTIONS
+Function no_newline() : cs:C1710._widget
+	This:C1470._append_newline:=False:C215
+	return This:C1470
 	
 	
 	
