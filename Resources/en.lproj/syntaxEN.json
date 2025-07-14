@@ -210,6 +210,17 @@
 		}
 	},
 	"Input": {
+		"no_newline()": {
+			"Syntax": "**.no_newline**() : cs.Dialog.Input",
+			"Params": [
+				[
+					"",
+					"cs.Dialog.Input",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"width()": {
 			"Syntax": "**.width**( *width* : Integer ) : cs.Dialog.Input",
 			"Params": [
@@ -347,6 +358,17 @@
 			],
 			"Summary": ""
 		},
+		"no_newline()": {
+			"Syntax": "**.no_newline**() : cs.Dialog.Checkbox",
+			"Params": [
+				[
+					"",
+					"cs.Dialog.Checkbox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"indent()": {
 			"Syntax": "**.indent**( *indent* : Integer ) : cs.Dialog.Checkbox",
 			"Params": [
@@ -415,7 +437,19 @@
 		"_inheritedFrom_": "_widget"
 	},
 	"Blank_Line": {},
-	"_widget": {},
+	"_widget": {
+		"no_newline()": {
+			"Syntax": "**.no_newline**() : cs.Dialog._widget",
+			"Params": [
+				[
+					"",
+					"cs.Dialog._widget",
+					"<-"
+				]
+			],
+			"Summary": ""
+		}
+	},
 	"Text": {
 		"size()": {
 			"Syntax": "**.size**( *size* : Integer ) : cs.Dialog.Text",
@@ -425,6 +459,17 @@
 					"Integer",
 					"->"
 				],
+				[
+					"",
+					"cs.Dialog.Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"no_newline()": {
+			"Syntax": "**.no_newline**() : cs.Dialog.Text",
+			"Params": [
 				[
 					"",
 					"cs.Dialog.Text",

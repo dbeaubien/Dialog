@@ -33,6 +33,10 @@ Sets the left indentation for the text.
   - `$indent : Integer` - The indentation in pixels.
 - **Returns**: `cs.Text` - The current text widget instance.
 
+### `no_newline() : cs.Text`
+Sets the text to not force a new line after the text. Useful if you want the next widget to be on the same 'line'.
+- **Returns**: `cs.Text` - The current text widget instance.
+
 ## Usage Example
 ```4d
 var $dialog : cs.Dialog

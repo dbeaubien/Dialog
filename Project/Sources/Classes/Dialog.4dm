@@ -230,22 +230,41 @@ Function _get_text_best_size($text : Text; $options : Object)->$best_size : Obje
 	
 Function _append_widgets_to_form()
 	var $id : Text
-	var $index : Integer
+	var $index; $widget_indent : Integer
 	var $widgets : cs:C1710._widget
+	var $add_newline : Boolean
 	var $widget_object : Object
+	var $widget_max_height : Integer
+	var $next_left_position : Integer
 	For each ($widgets; This:C1470._widgets)
 		$index+=1
 		$id:="widget_"+String:C10($index)
 		
 		$widget_object:=$widgets._widget_json()
+		$widget_indent:=$widget_object.left
 		$widget_object.top:=This:C1470._top_next_widget
 		$widget_object.left+=20
 		If ($widget_object.fontSize=Null:C1517)
 			$widget_object.fontSize:=This:C1470._default_font_size
 		End if 
+		If (Not:C34($add_newline))
+			$widget_object.left+=$next_left_position
+		End if 
+		
+		If ($widget_max_height<$widget_object.height)
+			$widget_max_height:=$widget_object.height
+		End if 
+		
+		$add_newline:=$widgets._append_newline
+		If ($add_newline)
+			This:C1470._top_next_widget+=$widget_max_height
+			This:C1470._top_next_widget+=10  // gap
+			$next_left_position:=0  // reset these
+			$widget_max_height:=0  // reset these
+		Else 
+			$next_left_position+=$widget_object.width+10+$widget_indent
+		End if 
 		
 		This:C1470._form.pages[1].objects[$id]:=$widget_object
-		This:C1470._top_next_widget+=$widget_object.height
-		This:C1470._top_next_widget+=10  // gap
 	End for each 
 	
