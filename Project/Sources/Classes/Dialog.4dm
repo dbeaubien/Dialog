@@ -230,7 +230,7 @@ Function _get_text_best_size($text : Text; $options : Object)->$best_size : Obje
 	
 Function _append_widgets_to_form()
 	var $id : Text
-	var $index : Integer
+	var $index; $widget_indent : Integer
 	var $widgets : cs:C1710._widget
 	var $add_newline : Boolean
 	var $widget_object : Object
@@ -241,6 +241,7 @@ Function _append_widgets_to_form()
 		$id:="widget_"+String:C10($index)
 		
 		$widget_object:=$widgets._widget_json()
+		$widget_indent:=$widget_object.left
 		$widget_object.top:=This:C1470._top_next_widget
 		$widget_object.left+=20
 		If ($widget_object.fontSize=Null:C1517)
@@ -261,7 +262,7 @@ Function _append_widgets_to_form()
 			$next_left_position:=0  // reset these
 			$widget_max_height:=0  // reset these
 		Else 
-			$next_left_position+=$widget_object.width+10
+			$next_left_position+=$widget_object.width+10+$widget_indent
 		End if 
 		
 		This:C1470._form.pages[1].objects[$id]:=$widget_object

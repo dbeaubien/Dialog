@@ -358,6 +358,17 @@
 			],
 			"Summary": ""
 		},
+		"no_newline()": {
+			"Syntax": "**.no_newline**() : cs.Dialog.Checkbox",
+			"Params": [
+				[
+					"",
+					"cs.Dialog.Checkbox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"indent()": {
 			"Syntax": "**.indent**( *indent* : Integer ) : cs.Dialog.Checkbox",
 			"Params": [
@@ -428,11 +439,11 @@
 	"Blank_Line": {},
 	"_widget": {
 		"no_newline()": {
-			"Syntax": "**.no_newline**() : cs.Dialog.Text",
+			"Syntax": "**.no_newline**() : cs.Dialog._widget",
 			"Params": [
 				[
 					"",
-					"cs.Dialog.Text",
+					"cs.Dialog._widget",
 					"<-"
 				]
 			],

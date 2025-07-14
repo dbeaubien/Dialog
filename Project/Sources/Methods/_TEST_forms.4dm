@@ -1,4 +1,29 @@
 //%attributes = {}
+$dialog:=cs:C1710.Dialog.new()\
+.width(500)\
+.auto_cancel_in_seconds(5*60)\
+.ok_button("Submit")\
+.cancel_button("Cancel")
+
+cs:C1710.Text.new($dialog; "Export Treatment Notes for District").bold().size(14)
+cs:C1710.Blank_Line.new($dialog)
+
+cs:C1710.Text.new($dialog; "District ID").no_newline().bold().indent(40)
+cs:C1710.Input.new($dialog).name("district_id").placeholder("District ID").width(50)
+
+cs:C1710.Text.new($dialog; "Start Date").no_newline().bold().indent(40)
+cs:C1710.Input.new($dialog).name("start_date").placeholder("MM/DD/YYYY").width(120)
+
+cs:C1710.Text.new($dialog; "End Date").no_newline().bold().indent(40)
+cs:C1710.Input.new($dialog).name("end_date").placeholder("MM/DD/YYYY").width(120)
+
+var $district_id; $end_date; $start_date : Integer
+var $form_data : Object
+$form_data:=$dialog.display()
+
+
+
+
 var $dialog : cs:C1710.Dialog
 $dialog:=cs:C1710.Dialog.new()\
 .default_font_size(14)\

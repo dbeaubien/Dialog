@@ -13,7 +13,7 @@ Class constructor($dialog : cs:C1710.Dialog)
 	
 	
 	//Mark:-************ PUBLIC FUNCTIONS
-Function no_newline() : cs:C1710.Text
+Function no_newline() : cs:C1710._widget
 	This:C1470._append_newline:=False:C215
 	return This:C1470
 	
