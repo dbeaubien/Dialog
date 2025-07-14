@@ -60,33 +60,39 @@ Sets the initial value of the input field.
   - `$value : Text` - The initial text value.
 - **Returns**: `cs.Input` - The current input widget instance.
 
+### `no_newline() : cs.Input`
+Sets the input field to not force a new line after the input. Useful if you want the next widget to be on the same 'line'.
+- **Returns**: `cs.Input` - The current input widget instance.
+
 
 ## Usage Example
 ```4d
-vvar $dialog : cs.Dialog
+var $dialog : cs.Dialog
 $dialog:=cs.Dialog.new()\
-   .default_font_size(13)\
-   .width(500)\
-   .ok_button("Continue")\
-   .cancel_button("Cancel")\
-   .other_button("A 3rd Option")
+  .default_font_size(14)\
+  .width(600)\
+  .ok_button("Continue")\
+  .cancel_button("Cancel")
 
-cs.Text.new($dialog; "Header for dialog").bold().size(18)
-cs.Text.new($dialog; "Some text. Like a paragraph.").indent(20)
+cs.Text.new($dialog; "Personal Information Request").bold().size(20)
+cs.Text.new($dialog; "This is a test of the Dialog component on a mockup of a dialog that asks the user for some personal information using a few different input methods.").indent(20)
+
 cs.Blank_Line.new($dialog)
-cs.Text.new($dialog; "Select one of the following").bold()
-cs.Checkbox.new($dialog; "Checkbox #1").name("cb_1").indent(20).is_checked()
-cs.Checkbox.new($dialog; "Checkbox #2").name("cb_2").indent(20)
-cs.Checkbox.new($dialog; "Checkbox #3").name("cb_3").indent(20).is_checked()
-cs.Checkbox.new($dialog; "Checkbox #4").name("cb_4").indent(20)
-cs.Checkbox.new($dialog; "Checkbox #5 - no name").indent(20)
-cs.Text.new($dialog; "please select one").italic().size(10).indent(20)
-cs.Blank_Line.new($dialog)
-cs.Text.new($dialog; "Type your name:").bold()
-cs.Input.new($dialog).name("first_name").value("Dude").indent(20).width(150).size(24)
+
+cs.Text.new($dialog; "Name:").bold().no_newline()
+cs.Input.new($dialog).name("first_name")\
+  .placeholder("First Name").width(120).no_newline()
 cs.Input.new($dialog).name("last_name")\
-   .placeholder("Last Name").indent(20).width(250)\
-   .bold()
+  .placeholder("Last Name").width(150)
+
+cs.Blank_Line.new($dialog)
+
+cs.Text.new($dialog; "Select one of the following").bold()
+cs.Checkbox.new($dialog; "Checkbox #1").name("cb_1").indent(40).is_checked().no_newline()
+cs.Checkbox.new($dialog; "Checkbox #2").name("cb_2").indent(40)
+cs.Checkbox.new($dialog; "Checkbox #3").name("cb_3").indent(40).is_checked().no_newline()
+cs.Checkbox.new($dialog; "Checkbox #4").name("cb_4").indent(40)
+cs.Checkbox.new($dialog; "Checkbox #5 - no name").indent(40)
 
 var $form_data : Object
 $form_data:=$dialog.display()

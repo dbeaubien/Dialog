@@ -32,6 +32,10 @@ Function indent($indent : Integer) : cs:C1710.Text
 	This:C1470._options.indent:=$indent
 	return This:C1470
 	
+Function no_newline() : cs:C1710.Text
+	Super:C1706.no_newline()
+	return This:C1470
+	
 	
 	//Mark:-************ PRIVATE FUNCTIONS
 Function _widget_json()->$widget : Object

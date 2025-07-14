@@ -44,6 +44,10 @@ Function is_checked() : cs:C1710.Checkbox
 	This:C1470._is_checked:=True:C214
 	return This:C1470
 	
+Function no_newline() : cs:C1710.Checkbox
+	Super:C1706.no_newline()
+	return This:C1470
+	
 	
 	//Mark:-************ PRIVATE FUNCTIONS
 Function _widget_json()->$widget : Object

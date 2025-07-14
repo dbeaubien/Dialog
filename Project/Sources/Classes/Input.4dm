@@ -54,6 +54,10 @@ Function value($value : Text) : cs:C1710.Input
 	This:C1470._value:=$value
 	return This:C1470
 	
+Function no_newline() : cs:C1710.Input
+	Super:C1706.no_newline()
+	return This:C1470
+	
 	
 	//Mark:-************ PRIVATE FUNCTIONS
 Function _widget_json()->$widget : Object
