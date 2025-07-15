@@ -52,19 +52,19 @@ Sets the checkbox to be initially checked.
 
 ## Usage Example
 ```4d
-var $dialog : cs.Dialog
-$dialog:=cs.Dialog.new()\
+var $dialog : cs.Dialog.Dialog
+$dialog:=cs.Dialog.Dialog.new()\
    .title("Message")\
    .width(400)\
    .ok_button("OK")\
    .cancel_button("Cancel")
 
-cs.Text.new($dialog; "Welcome to the dialog!")\
+cs.Dialog.Text.new($dialog; "Welcome to the dialog!")\
    .bold().italic().size(16)
 
-cs.Text.new($dialog; "Options:").indent(10)
-cs.Checkbox.new($dialog; "Option #1").name("cb_1").indent(20).is_checked()
-cs.Checkbox.new($dialog; "Option #2").name("cb_2").indent(20)
+cs.Dialog.Text.new($dialog; "Options:").indent(10)
+cs.Dialog.Checkbox.new($dialog; "Option #1").name("cb_1").indent(20).is_checked()
+cs.Dialog.Checkbox.new($dialog; "Option #2").name("cb_2").indent(20)
 
 // Display the dialog
 var $result : Object
