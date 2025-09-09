@@ -8,6 +8,19 @@
 				"Summary": ""
 			}
 		},
+		"Blank_Line": {
+			"new()": {
+				"Syntax": "**.new**( *dialog* : cs.Dialog.Dialog )",
+				"Params": [
+					[
+						"dialog",
+						"cs.Dialog.Dialog",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
 		"Input": {
 			"new()": {
 				"Syntax": "**.new**( *dialog* : cs.Dialog.Dialog )",
@@ -39,7 +52,7 @@
 				"Summary": ""
 			}
 		},
-		"Blank_Line": {
+		"DropdownMenu": {
 			"new()": {
 				"Syntax": "**.new**( *dialog* : cs.Dialog.Dialog )",
 				"Params": [
@@ -209,6 +222,7 @@
 			"Summary": ""
 		}
 	},
+	"Blank_Line": {},
 	"Input": {
 		"no_newline()": {
 			"Syntax": "**.no_newline**() : cs.Dialog.Input",
@@ -436,7 +450,89 @@
 		},
 		"_inheritedFrom_": "_widget"
 	},
-	"Blank_Line": {},
+	"DropdownMenu": {
+		"choices()": {
+			"Syntax": "**.choices**( *dropdown_menu_choices* : Collection ) : cs.Dialog.DropdownMenu",
+			"Params": [
+				[
+					"dropdown_menu_choices",
+					"Collection",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.DropdownMenu",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"indent()": {
+			"Syntax": "**.indent**( *indent* : Integer ) : cs.Dialog.DropdownMenu",
+			"Params": [
+				[
+					"indent",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.DropdownMenu",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"width()": {
+			"Syntax": "**.width**( *width* : Integer ) : cs.Dialog.DropdownMenu",
+			"Params": [
+				[
+					"width",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.DropdownMenu",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"default_value()": {
+			"Syntax": "**.default_value**( *default_value* : Variant ) : cs.Dialog.DropdownMenu",
+			"Params": [
+				[
+					"default_value",
+					"Variant",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.DropdownMenu",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"name()": {
+			"Syntax": "**.name**( *name* : Text ) : cs.Dialog.DropdownMenu",
+			"Params": [
+				[
+					"name",
+					"Text",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.DropdownMenu",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "_widget"
+	},
 	"_widget": {
 		"no_newline()": {
 			"Syntax": "**.no_newline**() : cs.Dialog._widget",
