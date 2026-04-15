@@ -1,50 +1,33 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
-// Method: Date2String ( date {; formatStr} ) : formated date as string
-// Method: Date2String ( date {; text} ) : text
+// Date2String ( date {; formatStr} ) : formated date as string
 //
 //   Supported formats: mm, m1, month, mon, dd, d1, day, dayShort, yyyy, yy
 //   Defaults to "mm/dd/yyyy".
 //   If a date of !00/00/00! is passed then a blank string is returned.
-If (False:C215)
-	// ===============================================================
-	// ---- PARAMETERS AND RESULTS ----
-	//   $1 [in]: date to format
-	//   $2 [optional in]: format to convert date to
-	//   $0 [out]: formated date as string
-	// ---- DESCRIPTION ----
-	//   This method converts the date into a string as dictated by the
-	//   optional format string. If the format string is not specified then
-	//   it defaults to "mm/dd/yyyy".
-	//
-	//   If a date of !00/00/00! is passed then a blank string is returned.
-	//
-	//   The following is the text that is converted by the format string
-	//   "mm" is converted to a two digit month
-	//   "dd" is converted to a two digit day
-	//   "yyyy" is converted to a four digit year
-	//   "yy" is converted to a two digit year
-	//   "month" is converted to the full month name
-	//   "mon" is converted to an abbreviated month name
-	//   "day" is converted to the full day name
-	// ---- CHANGE HISTORY ----
-	//   1999/02/28   DB   Created
-	//   2000/03/21   DB   Modified to include the new header formating
-	// ===============================================================
-End if 
-//#Start method
-
-C_DATE:C307($1; $date2Convert)
-C_TEXT:C284($2; $0; $dateString)
-C_LONGINT:C283($Day; $Month; $Year; $WeekDay)
-$date2Convert:=$1
-If (Count parameters:C259>=2)
-	$dateString:=$2
-End if 
+// 
+// ---- DESCRIPTION ----
+//   This method converts the date into a string as dictated by the
+//   optional format string. If the format string is not specified then
+//   it defaults to "mm/dd/yyyy".
+//
+//   If a date of !00/00/00! is passed then a blank string is returned.
+//
+//   The following is the text that is converted by the format string
+//   "mm" is converted to a two digit month
+//   "dd" is converted to a two digit day
+//   "yyyy" is converted to a four digit year
+//   "yy" is converted to a two digit year
+//   "month" is converted to the full month name
+//   "mon" is converted to an abbreviated month name
+//   "day" is converted to the full day name
+#DECLARE($date2Convert : Date; $dateString : Text) : Text
+// ===============================================================
 
 If ($dateString="")
 	$dateString:="mm/dd/yyyy"
 End if 
 
+var $Day; $Month; $Year; $WeekDay : Integer
 If ($date2Convert=!00-00-00!)  // return blank string if date !00/00/00!
 	$dateString:=""
 	
@@ -54,7 +37,7 @@ Else
 	$Year:=Year of:C25($date2Convert)
 	$WeekDay:=Day number:C114($date2Convert)
 	
-	C_TEXT:C284($DayStr; $DayStr2; $MonthStr; $MonthStr2)
+	var $DayStr; $DayStr2; $MonthStr; $MonthStr2 : Text
 	$DayStr:=String:C10($Day)
 	$DayStr2:=String:C10($Day; "00")
 	$MonthStr:=String:C10($Month; "00")
@@ -136,6 +119,4 @@ Else
 	
 End if 
 
-$0:=$dateString
-
-//#End method
+return $dateString
