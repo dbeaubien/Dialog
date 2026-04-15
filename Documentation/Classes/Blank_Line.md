@@ -7,19 +7,19 @@ Initializes a new instance of the `cs.Blank_Line` class.
 
 ## Usage Example
 ```4d
-var $dialog : cs.Dialog
-$dialog:=cs.Dialog.new()\
+var $dialog : cs.Dialog.Dialog
+$dialog:=cs.Dialog.Dialog.new()\
    .title("Message")\
    .width(400)\
    .ok_button("OK")
 
-cs.Text.new($dialog; "Welcome to the dialog!")\
+cs.Dialog.Text.new($dialog; "Welcome to the dialog!")\
    .bold().italic().size(16)
 
-cs.Text.new($dialog; "This is a text line that has been indented 10 pixels.").indent(10)
-cs.Blank_Line.new($dialog)
-cs.Blank_Line.new($dialog)
-cs.Text.new($dialog; "This is another text line that has been indented 10 pixels.").indent(10)
+cs.Dialog.Text.new($dialog; "This is a text line that has been indented 10 pixels.").indent(10)
+cs.Dialog.Blank_Line.new($dialog)
+cs.Dialog.Blank_Line.new($dialog)
+cs.Dialog.Text.new($dialog; "This is another text line that has been indented 10 pixels.").indent(10)
 
 // Display the dialog
 var $result : Object

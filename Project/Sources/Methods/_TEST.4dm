@@ -1,5 +1,7 @@
 //%attributes = {"preemptive":"capable"}
 var $dialog : cs:C1710.Dialog
+
+
 $dialog:=cs:C1710.Dialog.new()\
 .title("Message")\
 .width(400)\
@@ -23,7 +25,6 @@ If ($result.button_pressed="OK")
 End if 
 
 
-var $dialog : cs:C1710.Dialog
 $dialog:=cs:C1710.Dialog.new()\
 .default_font_size(13)\
 .width(500)\

@@ -67,32 +67,32 @@ Sets the input field to not force a new line after the input. Useful if you want
 
 ## Usage Example
 ```4d
-var $dialog : cs.Dialog
-$dialog:=cs.Dialog.new()\
+var $dialog : cs.Dialog.Dialog
+$dialog:=cs.Dialog.Dialog.new()\
   .default_font_size(14)\
   .width(600)\
   .ok_button("Continue")\
   .cancel_button("Cancel")
 
-cs.Text.new($dialog; "Personal Information Request").bold().size(20)
-cs.Text.new($dialog; "This is a test of the Dialog component on a mockup of a dialog that asks the user for some personal information using a few different input methods.").indent(20)
+cs.Dialog.Text.new($dialog; "Personal Information Request").bold().size(20)
+cs.Dialog.Text.new($dialog; "This is a test of the Dialog component on a mockup of a dialog that asks the user for some personal information using a few different input methods.").indent(20)
 
-cs.Blank_Line.new($dialog)
+cs.Dialog.Blank_Line.new($dialog)
 
-cs.Text.new($dialog; "Name:").bold().no_newline()
-cs.Input.new($dialog).name("first_name")\
+cs.Dialog.Text.new($dialog; "Name:").bold().no_newline()
+cs.Dialog.Input.new($dialog).name("first_name")\
   .placeholder("First Name").width(120).no_newline()
-cs.Input.new($dialog).name("last_name")\
+cs.Dialog.Input.new($dialog).name("last_name")\
   .placeholder("Last Name").width(150)
 
-cs.Blank_Line.new($dialog)
+cs.Dialog.Blank_Line.new($dialog)
 
-cs.Text.new($dialog; "Select one of the following").bold()
-cs.Checkbox.new($dialog; "Checkbox #1").name("cb_1").indent(40).is_checked().no_newline()
-cs.Checkbox.new($dialog; "Checkbox #2").name("cb_2").indent(40)
-cs.Checkbox.new($dialog; "Checkbox #3").name("cb_3").indent(40).is_checked().no_newline()
-cs.Checkbox.new($dialog; "Checkbox #4").name("cb_4").indent(40)
-cs.Checkbox.new($dialog; "Checkbox #5 - no name").indent(40)
+cs.Dialog.Text.new($dialog; "Select one of the following").bold()
+cs.Dialog.Checkbox.new($dialog; "Checkbox #1").name("cb_1").indent(40).is_checked().no_newline()
+cs.Dialog.Checkbox.new($dialog; "Checkbox #2").name("cb_2").indent(40)
+cs.Dialog.Checkbox.new($dialog; "Checkbox #3").name("cb_3").indent(40).is_checked().no_newline()
+cs.Dialog.Checkbox.new($dialog; "Checkbox #4").name("cb_4").indent(40)
+cs.Dialog.Checkbox.new($dialog; "Checkbox #5 - no name").indent(40)
 
 var $form_data : Object
 $form_data:=$dialog.display()
