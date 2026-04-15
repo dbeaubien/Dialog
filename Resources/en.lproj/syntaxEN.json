@@ -8,7 +8,7 @@
 				"Summary": ""
 			}
 		},
-		"Blank_Line": {
+		"Input": {
 			"new()": {
 				"Syntax": "**.new**( *dialog* : cs.Dialog.Dialog )",
 				"Params": [
@@ -21,7 +21,7 @@
 				"Summary": ""
 			}
 		},
-		"Input": {
+		"_widget": {
 			"new()": {
 				"Syntax": "**.new**( *dialog* : cs.Dialog.Dialog )",
 				"Params": [
@@ -52,32 +52,6 @@
 				"Summary": ""
 			}
 		},
-		"DropdownMenu": {
-			"new()": {
-				"Syntax": "**.new**( *dialog* : cs.Dialog.Dialog )",
-				"Params": [
-					[
-						"dialog",
-						"cs.Dialog.Dialog",
-						"->"
-					]
-				],
-				"Summary": ""
-			}
-		},
-		"_widget": {
-			"new()": {
-				"Syntax": "**.new**( *dialog* : cs.Dialog.Dialog )",
-				"Params": [
-					[
-						"dialog",
-						"cs.Dialog.Dialog",
-						"->"
-					]
-				],
-				"Summary": ""
-			}
-		},
 		"Text": {
 			"new()": {
 				"Syntax": "**.new**( *dialog* : cs.Dialog.Dialog; *text* : Text )",
@@ -95,9 +69,46 @@
 				],
 				"Summary": ""
 			}
+		},
+		"Blank_Line": {
+			"new()": {
+				"Syntax": "**.new**( *dialog* : cs.Dialog.Dialog )",
+				"Params": [
+					[
+						"dialog",
+						"cs.Dialog.Dialog",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
+		},
+		"DropdownMenu": {
+			"new()": {
+				"Syntax": "**.new**( *dialog* : cs.Dialog.Dialog )",
+				"Params": [
+					[
+						"dialog",
+						"cs.Dialog.Dialog",
+						"->"
+					]
+				],
+				"Summary": ""
+			}
 		}
 	},
 	"Dialog": {
+		"display()": {
+			"Syntax": "**.display**()->result : Object",
+			"Params": [
+				[
+					"result",
+					"Object",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"auto_cancel_in_seconds()": {
 			"Syntax": "**.auto_cancel_in_seconds**( *num_seconds_to_auto_cancel* : Integer ) : cs.Dialog.Dialog",
 			"Params": [
@@ -114,24 +125,8 @@
 			],
 			"Summary": ""
 		},
-		"title()": {
-			"Syntax": "**.title**( *title* : Text ) : cs.Dialog.Dialog",
-			"Params": [
-				[
-					"title",
-					"Text",
-					"->"
-				],
-				[
-					"",
-					"cs.Dialog.Dialog",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"other_button()": {
-			"Syntax": "**.other_button**( *label* : Text ) : cs.Dialog.Dialog",
+		"cancel_button()": {
+			"Syntax": "**.cancel_button**( *label* : Text ) : cs.Dialog.Dialog",
 			"Params": [
 				[
 					"label",
@@ -162,12 +157,12 @@
 			],
 			"Summary": ""
 		},
-		"default_font_size()": {
-			"Syntax": "**.default_font_size**( *font_size* : Integer ) : cs.Dialog.Dialog",
+		"title()": {
+			"Syntax": "**.title**( *title* : Text ) : cs.Dialog.Dialog",
 			"Params": [
 				[
-					"font_size",
-					"Integer",
+					"title",
+					"Text",
 					"->"
 				],
 				[
@@ -194,19 +189,24 @@
 			],
 			"Summary": ""
 		},
-		"display()": {
-			"Syntax": "**.display**()->result : Object",
+		"default_font_size()": {
+			"Syntax": "**.default_font_size**( *font_size* : Integer ) : cs.Dialog.Dialog",
 			"Params": [
 				[
-					"result",
-					"Object",
+					"font_size",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.Dialog",
 					"<-"
 				]
 			],
 			"Summary": ""
 		},
-		"cancel_button()": {
-			"Syntax": "**.cancel_button**( *label* : Text ) : cs.Dialog.Dialog",
+		"other_button()": {
+			"Syntax": "**.other_button**( *label* : Text ) : cs.Dialog.Dialog",
 			"Params": [
 				[
 					"label",
@@ -222,11 +222,15 @@
 			"Summary": ""
 		}
 	},
-	"Blank_Line": {},
 	"Input": {
-		"no_newline()": {
-			"Syntax": "**.no_newline**() : cs.Dialog.Input",
+		"value()": {
+			"Syntax": "**.value**( *value* : Text ) : cs.Dialog.Input",
 			"Params": [
+				[
+					"value",
+					"Text",
+					"->"
+				],
 				[
 					"",
 					"cs.Dialog.Input",
@@ -235,11 +239,11 @@
 			],
 			"Summary": ""
 		},
-		"width()": {
-			"Syntax": "**.width**( *width* : Integer ) : cs.Dialog.Input",
+		"size()": {
+			"Syntax": "**.size**( *size* : Integer ) : cs.Dialog.Input",
 			"Params": [
 				[
-					"width",
+					"size",
 					"Integer",
 					"->"
 				],
@@ -267,56 +271,8 @@
 			],
 			"Summary": ""
 		},
-		"size()": {
-			"Syntax": "**.size**( *size* : Integer ) : cs.Dialog.Input",
-			"Params": [
-				[
-					"size",
-					"Integer",
-					"->"
-				],
-				[
-					"",
-					"cs.Dialog.Input",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"value()": {
-			"Syntax": "**.value**( *value* : Text ) : cs.Dialog.Input",
-			"Params": [
-				[
-					"value",
-					"Text",
-					"->"
-				],
-				[
-					"",
-					"cs.Dialog.Input",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"placeholder()": {
-			"Syntax": "**.placeholder**( *placeholder* : Text ) : cs.Dialog.Input",
-			"Params": [
-				[
-					"placeholder",
-					"Text",
-					"->"
-				],
-				[
-					"",
-					"cs.Dialog.Input",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"italic()": {
-			"Syntax": "**.italic**() : cs.Dialog.Input",
+		"bold()": {
+			"Syntax": "**.bold**() : cs.Dialog.Input",
 			"Params": [
 				[
 					"",
@@ -342,9 +298,52 @@
 			],
 			"Summary": ""
 		},
-		"bold()": {
-			"Syntax": "**.bold**() : cs.Dialog.Input",
+		"width()": {
+			"Syntax": "**.width**( *width* : Integer ) : cs.Dialog.Input",
 			"Params": [
+				[
+					"width",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.Input",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"italic()": {
+			"Syntax": "**.italic**() : cs.Dialog.Input",
+			"Params": [
+				[
+					"",
+					"cs.Dialog.Input",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"no_newline()": {
+			"Syntax": "**.no_newline**() : cs.Dialog.Input",
+			"Params": [
+				[
+					"",
+					"cs.Dialog.Input",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"placeholder()": {
+			"Syntax": "**.placeholder**( *placeholder* : Text ) : cs.Dialog.Input",
+			"Params": [
+				[
+					"placeholder",
+					"Text",
+					"->"
+				],
 				[
 					"",
 					"cs.Dialog.Input",
@@ -355,74 +354,22 @@
 		},
 		"_inheritedFrom_": "_widget"
 	},
-	"Checkbox": {
-		"size()": {
-			"Syntax": "**.size**( *size* : Integer ) : cs.Dialog.Checkbox",
+	"_widget": {
+		"no_newline()": {
+			"Syntax": "**.no_newline**() : cs.Dialog._widget",
 			"Params": [
 				[
-					"size",
-					"Integer",
-					"->"
-				],
-				[
 					"",
-					"cs.Dialog.Checkbox",
+					"cs.Dialog._widget",
 					"<-"
 				]
 			],
 			"Summary": ""
-		},
+		}
+	},
+	"Checkbox": {
 		"no_newline()": {
 			"Syntax": "**.no_newline**() : cs.Dialog.Checkbox",
-			"Params": [
-				[
-					"",
-					"cs.Dialog.Checkbox",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"indent()": {
-			"Syntax": "**.indent**( *indent* : Integer ) : cs.Dialog.Checkbox",
-			"Params": [
-				[
-					"indent",
-					"Integer",
-					"->"
-				],
-				[
-					"",
-					"cs.Dialog.Checkbox",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"italic()": {
-			"Syntax": "**.italic**() : cs.Dialog.Checkbox",
-			"Params": [
-				[
-					"",
-					"cs.Dialog.Checkbox",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"bold()": {
-			"Syntax": "**.bold**() : cs.Dialog.Checkbox",
-			"Params": [
-				[
-					"",
-					"cs.Dialog.Checkbox",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"is_checked()": {
-			"Syntax": "**.is_checked**() : cs.Dialog.Checkbox",
 			"Params": [
 				[
 					"",
@@ -448,8 +395,142 @@
 			],
 			"Summary": ""
 		},
+		"bold()": {
+			"Syntax": "**.bold**() : cs.Dialog.Checkbox",
+			"Params": [
+				[
+					"",
+					"cs.Dialog.Checkbox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"indent()": {
+			"Syntax": "**.indent**( *indent* : Integer ) : cs.Dialog.Checkbox",
+			"Params": [
+				[
+					"indent",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.Checkbox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"is_checked()": {
+			"Syntax": "**.is_checked**() : cs.Dialog.Checkbox",
+			"Params": [
+				[
+					"",
+					"cs.Dialog.Checkbox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"size()": {
+			"Syntax": "**.size**( *size* : Integer ) : cs.Dialog.Checkbox",
+			"Params": [
+				[
+					"size",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.Checkbox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"italic()": {
+			"Syntax": "**.italic**() : cs.Dialog.Checkbox",
+			"Params": [
+				[
+					"",
+					"cs.Dialog.Checkbox",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
 		"_inheritedFrom_": "_widget"
 	},
+	"Text": {
+		"bold()": {
+			"Syntax": "**.bold**() : cs.Dialog.Text",
+			"Params": [
+				[
+					"",
+					"cs.Dialog.Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"indent()": {
+			"Syntax": "**.indent**( *indent* : Integer ) : cs.Dialog.Text",
+			"Params": [
+				[
+					"indent",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"no_newline()": {
+			"Syntax": "**.no_newline**() : cs.Dialog.Text",
+			"Params": [
+				[
+					"",
+					"cs.Dialog.Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"size()": {
+			"Syntax": "**.size**( *size* : Integer ) : cs.Dialog.Text",
+			"Params": [
+				[
+					"size",
+					"Integer",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"italic()": {
+			"Syntax": "**.italic**() : cs.Dialog.Text",
+			"Params": [
+				[
+					"",
+					"cs.Dialog.Text",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"_inheritedFrom_": "_widget"
+	},
+	"Blank_Line": {},
 	"DropdownMenu": {
 		"choices()": {
 			"Syntax": "**.choices**( *dropdown_menu_choices* : Collection ) : cs.Dialog.DropdownMenu",
@@ -457,6 +538,22 @@
 				[
 					"dropdown_menu_choices",
 					"Collection",
+					"->"
+				],
+				[
+					"",
+					"cs.Dialog.DropdownMenu",
+					"<-"
+				]
+			],
+			"Summary": ""
+		},
+		"name()": {
+			"Syntax": "**.name**( *name* : Text ) : cs.Dialog.DropdownMenu",
+			"Params": [
+				[
+					"name",
+					"Text",
 					"->"
 				],
 				[
@@ -510,103 +607,6 @@
 				[
 					"",
 					"cs.Dialog.DropdownMenu",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"name()": {
-			"Syntax": "**.name**( *name* : Text ) : cs.Dialog.DropdownMenu",
-			"Params": [
-				[
-					"name",
-					"Text",
-					"->"
-				],
-				[
-					"",
-					"cs.Dialog.DropdownMenu",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"_inheritedFrom_": "_widget"
-	},
-	"_widget": {
-		"no_newline()": {
-			"Syntax": "**.no_newline**() : cs.Dialog._widget",
-			"Params": [
-				[
-					"",
-					"cs.Dialog._widget",
-					"<-"
-				]
-			],
-			"Summary": ""
-		}
-	},
-	"Text": {
-		"size()": {
-			"Syntax": "**.size**( *size* : Integer ) : cs.Dialog.Text",
-			"Params": [
-				[
-					"size",
-					"Integer",
-					"->"
-				],
-				[
-					"",
-					"cs.Dialog.Text",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"no_newline()": {
-			"Syntax": "**.no_newline**() : cs.Dialog.Text",
-			"Params": [
-				[
-					"",
-					"cs.Dialog.Text",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"indent()": {
-			"Syntax": "**.indent**( *indent* : Integer ) : cs.Dialog.Text",
-			"Params": [
-				[
-					"indent",
-					"Integer",
-					"->"
-				],
-				[
-					"",
-					"cs.Dialog.Text",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"italic()": {
-			"Syntax": "**.italic**() : cs.Dialog.Text",
-			"Params": [
-				[
-					"",
-					"cs.Dialog.Text",
-					"<-"
-				]
-			],
-			"Summary": ""
-		},
-		"bold()": {
-			"Syntax": "**.bold**() : cs.Dialog.Text",
-			"Params": [
-				[
-					"",
-					"cs.Dialog.Text",
 					"<-"
 				]
 			],

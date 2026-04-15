@@ -1,10 +1,10 @@
 ﻿{
 	"author": "Dani Beaubien",
-	"copyrights": "Copyright 2025 Open Road Development Inc.",
-	"version": "2025.r3 (build 20250714)",
-	"buildDate": "2025-07-14",
+	"copyrights": "Copyright 2026 Open Road Development Inc.",
+	"version": "2026.r1 (build 20260415)",
+	"buildDate": "2026-04-15",
 	"url": "http://openroaddevelopment.com",
 	"manifestFormatVersion": "1.0",
-	"buildWith4DVersion": "v20.6 final (build 101680)",
+	"buildWith4DVersion": "v21 final (build 100422)",
 	"methodList": []
 }

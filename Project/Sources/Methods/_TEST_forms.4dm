@@ -56,5 +56,4 @@ cs:C1710.Checkbox.new($dialog; "Checkbox #3").name("cb_3").indent(40).is_checked
 cs:C1710.Checkbox.new($dialog; "Checkbox #4").name("cb_4").indent(40)
 cs:C1710.Checkbox.new($dialog; "Checkbox #5 - no name").indent(40)
 
-var $form_data : Object
 $form_data:=$dialog.display()
