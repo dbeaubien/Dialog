@@ -1,7 +1,6 @@
 //%attributes = {"preemptive":"capable"}
 var $dialog : cs:C1710.Dialog
 
-
 $dialog:=cs:C1710.Dialog.new()\
 .title("Message")\
 .width(400)\

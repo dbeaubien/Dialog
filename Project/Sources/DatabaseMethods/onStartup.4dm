@@ -13,11 +13,12 @@ If (Not:C34(Is compiled mode:C492)) & (Structure file:C489(*)=Structure file:C48
 		EXECUTE METHOD:C1007("Snippet_ShowSelectorWindow")
 	End if 
 	
-	If (Find in array:C230($at_components; "Mainfest Generator")>0)
+	If (Find in array:C230($at_components; "@Manifest Generator@")>0)
 		EXECUTE METHOD:C1007("Manifest_SetAuthor"; *; "Dani Beaubien")
 		EXECUTE METHOD:C1007("Manifest_SetBuildDate"; *; Current date:C33)
 		EXECUTE METHOD:C1007("Manifest_SetURL"; *; "http://openroaddevelopment.com")
 		EXECUTE METHOD:C1007("Manifest_SetCopyright"; *; "Copyright "+String:C10(Year of:C25(Current date:C33))+" Open Road Development Inc.")
 		EXECUTE METHOD:C1007("Manifest_SetVersion"; *; BuildNo_GetBuildNo_Comp.versionLong; True:C214)
+		EXECUTE METHOD:C1007("Manifest_RefreshLocalFile"; *)
 	End if 
 End if 
