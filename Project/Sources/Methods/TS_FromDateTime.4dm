@@ -4,9 +4,10 @@
 // $1 = Date
 // $2 = Time
 
-var $0; $Offset : Integer
-var $1; $Date; $RefDate : Date
-var $2; $Time : Time
+#DECLARE($Date : Date; $Time : Time) : Integer
+
+var $Offset : Integer
+var $RefDate : Date
 $RefDate:=!1990-01-01!
 $Offset:=86400  // aka 24*60*60
 
@@ -16,17 +17,13 @@ Case of
 		$Time:=Current time:C178
 		
 	: (Count parameters:C259=1)  // Get the time on the server
-		$Date:=$1
 		$Time:=Current time:C178
 		
 	: (Count parameters:C259=2)  // The date and time were both passed to this routine
-		$Date:=$1
-		$Time:=$2
 End case 
 
 If ($date#!00-00-00!)
-	$0:=($Date-$RefDate)*$Offset
-	$0:=$0+($Time+0)
+	return (($Date-$RefDate)*$Offset)+($Time+0)
 Else 
-	$0:=0  // no date means a zero
+	return 0  // no date means a zero
 End if 

@@ -1,11 +1,9 @@
 //%attributes = {"invisible":true,"preemptive":"capable"}
 // CallChain_FormatPretty (callChainCollection) : prettyCallChain
 //
-var $1; $callChainCollection : Collection
-var $0; $prettyCallChain : Text
+#DECLARE($callChainCollection : Collection)->$prettyCallChain : Text
 // ----------------------------------------------------
 ASSERT:C1129(Count parameters:C259=1)
-$callChainCollection:=$1
 $prettyCallChain:=""
 
 var $prettyLines : Collection
@@ -28,5 +26,3 @@ For ($i; $callChainCollection.length-1; 0; -1)
 	$prettyLines.push($line)
 End for 
 $prettyCallChain:=$prettyLines.join("\r")
-
-$0:=$prettyCallChain
